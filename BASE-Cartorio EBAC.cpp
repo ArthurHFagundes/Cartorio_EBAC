@@ -10,12 +10,14 @@ int registro()
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
-	
+	int opcao=0;
+	int laco=1;
+
 	printf("Digite o CPF a ser cadastrado: ");
 	scanf("%s", cpf); //ARMAZENA VAR. TIPO STRING >> LE A STRING "CPF"
-	
+
 	strcpy(arquivo, cpf); //COPIA O CPF PARA O ARQUIVO
-	
+
 	FILE *file; //CRIA O ARQUIVO(file) NO BANCO DE DADOS DO PC(FILE)
 	file = fopen(arquivo, "w"); //ABRE O ARQUIVO(file)
 	fprintf(file, cpf); //SALVA NO ARQUIVO(file)
@@ -48,7 +50,28 @@ int registro()
 	fprintf(file, cargo);
 	fclose(file);
 	
-	system("pause"); //CONTINUA APARECENDO ATÉ O USUÁRIO Ñ QUERER MAIS
+	printf("\nGostaria de cadastrar outro usuário?\n");
+	printf("\nDigite '1' para SIM e '2' para NAO: ");
+	
+	scanf("%d", &opcao);
+		
+	system("cls");
+
+	switch(opcao)
+	{
+		case 1:
+		registro();
+		break;
+		
+		case 2:
+		system("pause");
+		break;
+			
+		default:
+		printf("Essa opção não está disponível!\n");
+		system("pause"); //CONTINUA APARECENDO ATÉ O USUÁRIO Ñ QUERER MAIS
+		break;
+	}
 	
 }
 
