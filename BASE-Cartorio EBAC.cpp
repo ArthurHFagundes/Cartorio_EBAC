@@ -87,12 +87,13 @@ int deletar()
 	printf("Digite o CPF do usuário a ser deletado: ");
 	scanf("%s", cpf);
 	
+	remove(cpf);
 	FILE *file;
 	file = fopen(cpf, "r");
 	
 	if(file == NULL)
 	{
-		printf("O CPF do Usuário não foi encontrado \n");
+		printf("\n O CPF do Usuário não foi encontrado!\n");
 		system("pause");
 	}
 }
@@ -113,7 +114,8 @@ int main()
 		printf("Escolha a opção desejada do menu:\n\n");
 		printf("\t1 - Registar nomes\n");
 		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar nomes\n\n");
+		printf("\t3 - Deletar nomes\n");
+		printf("\t4 - Sair do sistema\n\n");
 		printf("Opção: ");
 	
 		scanf("%d", &opcao); //ARMAZENA VAR. TIPO INT. >> LE A VARIAVEL OPÇÃO
@@ -132,6 +134,11 @@ int main()
 			
 			case 3:
 			deletar();
+			break;
+			
+			case 4:
+			printf("Obrigado por utilizar o sistema!\n");
+			return 0; // RETORNA A VARIAVEL = 0 (SISTEMA ENCERRA)
 			break;
 			
 			default:
