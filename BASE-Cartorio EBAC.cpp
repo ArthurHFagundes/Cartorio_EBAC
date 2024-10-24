@@ -123,17 +123,25 @@ int deletar()
 
 int main()
 {
+	setlocale(LC_ALL, "Portuguese"); 
 	
 	int opcao=0; // PRIMEIRA VARIAVEL SEMPRE SETAR COMO "0"
 	int laco=1;
+	char senha[5];
+		
+	printf("### Cartório da EBAC ###\n\n");
+	printf("Login de administrador!\n\n Digite a senha para continuar: ");
+	scanf("%s", senha);
 	
-	for(laco=1;laco=1;) //LAÇO INFINITO
+	if(strcmp (senha, "admin") == 0) // COMPARA A STRING PARA VER SE O DIGITADO ("senha") = "admin"
 	{
+		for(laco=1;laco=1;) //LAÇO INFINITO
+		{
 		system ("cls");
 		
 		setlocale(LC_ALL, "Portuguese"); // SETAR PARA A LIGUAGEM & ACENTUAÇÃO DO BR
 	
-		printf(" ### Cartório da EBAC \n\n"); 
+		printf("### Cartório da EBAC ###\n\n"); 
 		printf("Escolha a opção desejada do menu:\n\n");
 		printf("\t1 - Registar nomes\n");
 		printf("\t2 - Consultar nomes\n");
@@ -146,7 +154,7 @@ int main()
 		system("cls"); // LIMPAR A TELA
 		
 		switch(opcao) // SWITCH > IF ( MEMÓRIA E PROCESSAMENTO)
-		{
+			{
 			case 1:
 			registro();
 			break;
@@ -168,7 +176,14 @@ int main()
 			printf("Essa opção não está disponível!\n");
 			system("pause");
 			break;
+			}
 		}
 
 	}
+	if(strcmp (senha, "admin") != 0);
+	{
+		printf("Senha incorreta!");
+		system("pause");
+	}
+	
 }
